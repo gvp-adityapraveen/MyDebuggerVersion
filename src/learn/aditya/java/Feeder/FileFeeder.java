@@ -16,7 +16,6 @@ public class FileFeeder {
 
     // We will write into a different file so that
     // original content is not damaged
-    private static final String writtenFileSuffix = "Debugger.java";
 
     File fileToBeRead = null,fileToBeWritten = null;
 
@@ -50,7 +49,7 @@ public class FileFeeder {
             return;
         }
         fileToBeRead = new File(this.fileName+".java");
-        fileToBeWritten = new File(this.fileName+writtenFileSuffix);
+        fileToBeWritten = new File(this.fileName.replace("source","debug")+".java");
         try {
             fileReader = new FileReader(fileToBeRead);
             bufferedReader = new BufferedReader(fileReader);
